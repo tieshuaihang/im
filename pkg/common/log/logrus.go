@@ -24,7 +24,7 @@ func init() {
 	// 设置日志级别
 	logrus.SetLevel(logrus.DebugLevel)
 	// 输出文件名和方法信息
-	logrus.SetReportCaller(true)
+	//logrus.SetReportCaller(true)
 	// 设置日志格式为json格式
 	logrus.SetFormatter(&logrus.JSONFormatter{}) // 第三方日志格式 nested-logrus-formatter
 
@@ -34,6 +34,18 @@ func init() {
 	logrus.SetOutput(io.MultiWriter(stdout, file))
 }
 
+func Infof(format string, args ...interface{}) {
+	logrus.Infof(format, args)
+}
+
 func Info(args ...interface{}) {
-	logrus.Infoln(args)
+	logrus.Info(args)
+}
+
+func Errorf(format string, args ...interface{}) {
+	logrus.Errorf(format, args)
+}
+
+func Error(args ...interface{}) {
+	logrus.Error(args)
 }
